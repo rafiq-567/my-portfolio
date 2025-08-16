@@ -11,6 +11,12 @@ export default function Education() {
           <p>Govt. Keshab Chandra College, Jhenaidah</p>
           
         </div>
+        <div className="p-4 border rounded-lg">
+          <h3 className="font-semibold">B.A(honours) in Economics</h3>
+          <p className="text-sm ">National University — 2014</p>
+          <p>Govt. Keshab Chandra College, Jhenaidah</p>
+          
+        </div>
         {/* add more if needed */}
       </div>
     </section>

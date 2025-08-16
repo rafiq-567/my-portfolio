@@ -10,7 +10,7 @@ export default function Navbar() {
             <div className="container mx-auto px-4 flex justify-between items-center">
                 <div className="flex items-center gap-3">
                     <Link to="/" className="flex items-center gap-2">
-                        <img src={logo} alt="Logo" className="h-8 w-8" />
+                        <img src={logo} alt="Logo" className="h-8 w-8 bg-white" />
                         {/* <span className="font-bold text-lg">Your Name</span> */}
                     </Link>
                     

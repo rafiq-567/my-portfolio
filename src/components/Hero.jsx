@@ -9,7 +9,7 @@ export default function Hero(){
             <h1>Hello, I am</h1>
           <h1 className="text-2xl md:text-3xl font-bold">{profile.name}</h1>
           <p className="text-indigo-600 font-semibold mt-2">{profile.designation}</p>
-          <p className="mt-4 max-prose text-gray-700">{profile.intro}</p>
+          <p className="mt-4 max-prose dark:text-white">{profile.intro}</p>
 
           <div className="flex items-center gap-3 mt-6">
             <a href={profile.resume} download className="btn btn-primary">Download Resume</a>

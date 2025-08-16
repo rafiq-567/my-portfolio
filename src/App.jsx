@@ -1,9 +1,9 @@
 import React from 'react'
 import { Routes, Route } from 'react-router'
 import Navbar from './components/Navbar'
-// import Footer from './components/Footer'
 import Home from './pages/Home'
 import ProjectDetails from './pages/ProjectDetails'
+import Projects from './components/Projects'
 
 export default function App() {
   return (
@@ -11,11 +11,12 @@ export default function App() {
       <Navbar />
       <main className="flex-1">
         <Routes>
+          <Route path="/projects" element={<Projects />} />
           <Route path="/" element={<Home />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
         </Routes>
       </main>
-      {/* <Footer /> */}
+     
     </div>
   )
 }
