@@ -1,6 +1,6 @@
-import pic10 from '../assets/10s1.jpg'
-import pic11 from '../assets/11s1.jpg'
-import pic12 from '../assets/12s1.jpg'
+import pic10 from '../assets/10s1.JPG'
+import pic11 from '../assets/11s1.JPG'
+import pic12 from '../assets/12s1.JPG'
 export const projects = [
   {
     id: "p1",
