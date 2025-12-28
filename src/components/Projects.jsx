@@ -1,5 +1,5 @@
 // import { Link } from "react-router";
-// import { projects } from "../data/projects";
+// import { projects } from "../data/projects.jsx";
 
 // export default function Projects() {
 //   return (
@@ -41,7 +41,7 @@
 
 
 import { Link } from "react-router";
-import { projects } from "../data/projects";
+import { projects } from "../data/projects.jsx";
 import { CometCard } from "./ui/CometCard";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
@@ -108,7 +108,7 @@ export default function Projects() {
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-2">
-                      {project.tech?.map((tech, i) => (
+                      {project.stack?.map((tech, i) => (
                         <span
                           key={i}
                           className="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded"

@@ -46,7 +46,8 @@
 
 // ProjectDetails.jsx
 import { useParams, Link } from "react-router";
-import { projects } from "../data/projects";
+import { projects } from "../data/projects.jsx";
+// import { projects } from "../data/projects.jsx";
 
 
 export default function ProjectDetails() {
