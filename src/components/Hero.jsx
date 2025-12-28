@@ -1,37 +1,96 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa'
-import { profile } from '../data/Profile'
-import photo  from '../assets/20210118_141130.jpg'
-export default function Hero(){
+import React from 'react';
+import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { profile } from '../data/Profile';
+import photo from '../assets/20210118_141130.jpg';
+import { Spotlight } from "./ui/Spotlight";
+
+export default function Hero() {
   return (
-    <section className="container mx-auto px-4 py-12">
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-            <h1>Hello, I am</h1>
-          <h1 className="text-2xl md:text-3xl font-bold">{profile.name}</h1>
-          <p className="text-indigo-600 font-semibold mt-2">{profile.designation}</p>
-          <p className="mt-4 max-prose dark:text-white">{profile.intro}</p>
+    // Main Container: Needs 'relative' and 'overflow-hidden' for the spotlight to work
+    <section
+      className="relative min-h-screen w-full flex items-center justify-center antialiased"
+      style={{ backgroundColor: "var(--background-color)" }}
+    >
 
-          <div className="flex items-center gap-3 mt-6">
-            <a href={profile.resume} download className="btn btn-primary">Download Resume</a>
-            <a href={profile.resume} target="_blank" rel="noreferrer" className="btn btn-outline">View Resume</a>
-          </div>
 
-          <div className="flex gap-3 mt-4">
-            <a href={profile.socials.github} target="_blank" rel="noreferrer"><FaGithub size={22} /></a>
-            <a href={profile.socials.linkedin} target="_blank" rel="noreferrer"><FaLinkedin size={22} /></a>
-            <a href={profile.socials.twitter} target="_blank" rel="noreferrer"><FaTwitter size={22} /></a>
-            <a href={profile.socials.facebook} target="_blank" rel="noreferrer"><FaFacebook size={22} /></a>
-          </div>
-        </div>
+      {/* Layer 1: The Spotlight Effect */}
+      {/* <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" /> */}
+      {/* Ambient Spotlights */}
+       <Spotlight
+        className="-top-40 -left-40 z-0"
+        fill="#6366f1" // indigo
+      />
+      {/* <Spotlight
+        className="top-0 right-0 z-0"
+        fill="#a855f7" // purple
+      /> */}
+      <Spotlight
+        className="bottom-[-20%] left-[20%] z-0"
+        fill="#22d3ee" // cyan
+      />
+    
 
-        <div className="flex justify-center md:justify-end">
-          <div className="avatar">
-            <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-indigo-100 shadow-lg">
-              <img src={photo} alt={profile.name} />
+
+      {/* Layer 2: Dot Grid Background */}
+      {/* This creates the dots. The 'mask-image' makes them fade out toward the edges */}
+     <div
+  className="absolute inset-0 bg-grid p-8 pointer-events-none z-1"
+  style={{
+    maskImage: "radial-gradient(ellipse at center, black 50%, transparent 85%)",
+    WebkitMaskImage: "radial-gradient(ellipse at center, black 50%, transparent 85%)"
+  }}
+/>
+
+
+
+ 
+
+
+      {/* Layer 3: Your Content */}
+      <div className="container mx-auto px-6 z-10 relative">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-zinc-400 font-medium mb-2">Hello, I am</h1>
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-500">
+              {profile.name}
+            </h1>
+            <p className="text-indigo-400 text-xl font-semibold mt-3">{profile.designation}</p>
+            <p className="mt-6 max-w-lg text-zinc-400 text-lg leading-relaxed">{profile.intro}</p>
+
+            <div className="flex items-center gap-4 mt-8">
+              <a href={profile.resume} download className="btn btn-primary rounded-full px-8 shadow-lg shadow-indigo-500/20">
+                Download Resume
+              </a>
+              <div className="flex gap-5 ml-4">
+                <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaGithub size={24} /></a>
+                <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaLinkedin size={24} /></a>
+              </div>
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center md:justify-end"
+          >
+            <div className="relative group">
+              {/* Animated Glow behind the image */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+                <img src={photo} alt={profile.name} className="object-cover w-full h-full scale-105 group-hover:scale-110 transition duration-500" />
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
-  )
+  );
 }

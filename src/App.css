@@ -1,0 +1,42 @@
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  transition: background-color 0.25s ease-in-out;
+}
+
+.title {
+  color: var(--primary-text-color);
+  margin-bottom: 50px;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--foreground-color);
+  color: var(--secondary-text-color);
+}
+
+/* =========================
+   GRID BACKGROUND (WORKING)
+   ========================= */
+
+/* Light mode grid */
+/* .bg-grid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='black' stroke-opacity='0.08'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
+} */
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Dark mode grid — IMPORTANT: uses data-theme */
+[data-theme="dark"] .bg-grid {
+  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white' stroke-opacity='0.12'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E\");
+}

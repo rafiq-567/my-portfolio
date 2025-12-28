@@ -1,53 +1,149 @@
-// import React from 'react'
-// import { Link } from 'react-router'
-// import { projects } from '../data/Projects'
+// import { Link } from "react-router";
+// import { projects } from "../data/projects";
 
-
-// export default function Projects(){
+// export default function Projects() {
 //   return (
-//     <section id="projects" className="container mx-auto px-4 py-10">
-       
-//       <h2 className="text-2xl font-bold mb-6">Projects</h2>
-//       <div className="grid md:grid-cols-3 gap-6">
-//         {projects.map(p => (
-//           <div key={p.id} className="border rounded-lg overflow-hidden bg-white shadow-sm">
-//             <img src={p.image} alt={p.name} className="h-40 w-full object-cover"/>
-//             <div className="p-4">
-//               <h3 className="font-semibold text-lg text-black">{p.name}</h3>
-//               <p className="text-sm text-gray-600 mt-1">{p.description}</p>
-//               <div className="mt-4 flex gap-2">
-//                 <Link to={`/project/${p.id}`} className="btn btn-sm text-black btn-outline">View More / Details</Link>
-//                 <a href={p.live} target="_blank" rel="noreferrer" className="btn btn-sm btn-primary">Live</a>
+//     <section id="projects" className="py-10">
+//       {/* Added container mx-auto for centering */}
+//       <div className="container mx-auto px-4">
+//         <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
+        
+//         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+//           {projects.map((project) => (
+//             <div key={project.id} className="border rounded-xl shadow-lg p-4 bg-white dark:bg-gray-800 flex flex-col justify-between">
+//               <div>
+//                 <img 
+//                   src={project.image} 
+//                   alt={project.name} 
+//                   className="rounded-lg w-full h-48 object-cover" 
+//                 />
+//                 <h2 className="text-xl font-semibold mt-4 text-black dark:text-white">
+//                   {project.name}
+//                 </h2>
+//                 <p className="text-gray-600 dark:text-gray-300 mt-2 line-clamp-3">
+//                   {project.description}
+//                 </p>
 //               </div>
+              
+//               <Link
+//                 to={`/projects/${project.id}`}
+//                 className="mt-6 inline-block text-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+//               >
+//                 View More / Details
+//               </Link>
 //             </div>
-//           </div>
-//         ))}
+//           ))}
+//         </div>
 //       </div>
 //     </section>
-//   )
+//   );
 // }
 
 
-// Projects.jsx
 import { Link } from "react-router";
 import { projects } from "../data/projects";
+import { CometCard } from "./ui/CometCard";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <div className="grid gap-6 grid-cols-1 md:grid-cols-3 p-6">
-      {projects.map((project) => (
-        <div key={project.id} className="border rounded-xl shadow-lg p-4">
-          <img src={project.image} alt={project.name} className="rounded-lg" />
-          <h2 className="text-xl font-semibold mt-2">{project.name}</h2>
-          <p className="text-gray-600 dark:text-white line-clamp-3">{project.description}</p>
-          <Link
-            to={`/projects/${project.id}`}
-            className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg"
-          >
-            View More / Details
-          </Link>
+    <section
+      id="projects"
+      className="py-20 min-h-screen flex justify-center"
+      style={{ backgroundColor: "var(--background-color)" }}
+    >
+      {/* OUTER WRAPPER – FORCES CENTER */}
+      <div className="w-full max-w-7xl px-6">
+
+        {/* TITLE */}
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold mb-20 text-center text-black dark:text-white"
+        >
+          My Projects
+        </motion.h2>
+
+        {/* GRID – HARD CENTERED */}
+        <div
+          className="
+            grid 
+            grid-cols-1 
+            md:grid-cols-2 
+            lg:grid-cols-3 
+            
+            justify-items-center
+            mx-auto
+          "
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="w-full max-w-sm"
+            >
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                glareEnable
+                glareMaxOpacity={0.15}
+                className="h-full"
+              >
+                <CometCard className="flex flex-col h-full p-6 hover:shadow-2xl transition-shadow">
+
+               
+
+                  {/* CONTENT */}
+                  <div className="flex flex-col flex-grow text-center">
+                    <h3 className="text-xl font-semibold text-black dark:text-white">
+                      {project.name}
+                    </h3>
+
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-3">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {project.tech?.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                     {/* IMAGE */}
+                  <div className="overflow-hidden rounded-lg mb-4">
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* BUTTON */}
+                  <div className="mt-6">
+                    <Link
+                      to={`/projects/${project.id}`}
+                      className="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+
+                </CometCard>
+              </Tilt>
+            </motion.div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </section>
   );
 }
