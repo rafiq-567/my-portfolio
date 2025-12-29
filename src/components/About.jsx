@@ -47,7 +47,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         //   className="sticky top-24" // Keeps text visible as you scroll the cards
         >
-          <h2 className="text-5xl font-bold text-fuchsia-300 mb-8">About Me</h2>
+          <h2 className="text-3xl text-center font-bold text-fuchsia-300 mb-8">About Me</h2>
           <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
             <p>
               I am <span className="text-white font-semibold">Md. Rafiqul Akhter</span>, 

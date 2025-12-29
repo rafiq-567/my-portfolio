@@ -13,5 +13,6 @@ export const profile = {
   },
   email: "mdrafiqulakhter0@gmail.com",
   phone: "+8801937754646",
-  whatsapp: "+8801937754646"
+  whatsapp: "+8801937754646",
+  location: "Dhaka, Bangladesh"
 }

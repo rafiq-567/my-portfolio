@@ -34,16 +34,5 @@ export const projects = [
     github: "https://github.com/rafiq-567/B11-Assignment-10",
     challenges: "Sync state and API design.",
     improvements: "Add offline capability and notifications."
-  },
-  {
-    id: "p4",
-    name: "Hobby hub",
-    image: pic10,
-    stack: ["React", "Node", "MongoDB"],
-    description: "A simple website for people to explore their hobby and get connected.",
-    live: "https://hobby-hub-authentication.web.app",
-    github: "https://github.com/rafiq-567/B11-Assignment-10",
-    challenges: "Sync state and API design.",
-    improvements: "Add offline capability and notifications."
   }
 ]

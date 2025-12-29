@@ -61,7 +61,7 @@ export default function Navbar() {
   const [active, setActive] = useState(null);
 
   const navItems = [
-    { name: 'Home', link: '#home', icon: Home },
+    { name: 'Home', link: '#hero', icon: Home },
     { name: 'About', link: '#about', icon: User },
     { name: 'Skills', link: '#skills', icon: Zap },
     { name: 'Education', link: '#education', icon: GraduationCap },

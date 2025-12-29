@@ -1,28 +1,3 @@
-// import React from 'react'
-
-// export default function Education() {
-//   return (
-//     <section className="container mx-auto px-4 py-8 ">
-//       <h2 className="text-2xl font-bold mb-4">Education</h2>
-//       <div className="space-y-4">
-//         <div className="p-4 border rounded-lg">
-//           <h3 className="font-semibold">M.A in Economics</h3>
-//           <p className="text-sm ">National University — 2016</p>
-//           <p>Govt. Keshab Chandra College, Jhenaidah</p>
-          
-//         </div>
-//         <div className="p-4 border rounded-lg">
-//           <h3 className="font-semibold">B.A(honours) in Economics</h3>
-//           <p className="text-sm ">National University — 2014</p>
-//           <p>Govt. Keshab Chandra College, Jhenaidah</p>
-          
-//         </div>
-//         {/* add more if needed */}
-//       </div>
-//     </section>
-//   )
-// }
-
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -30,7 +5,7 @@ import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden py-20 md:py-28">
+    <section id="education" className="relative min-h-screen w-full overflow-hidden py-20 md:py-28">
       {/* Section title as in image */}
       <div className="mb-16 md:mb-24">
         <motion.h2 
@@ -41,6 +16,9 @@ export default function Education() {
           className="text-center text-4xl md:text-5xl font-bold tracking-tight"
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 ">
+            <br />
+            <br />
+            <br />
             Educations
           </span>
         </motion.h2>
@@ -87,7 +65,7 @@ export default function Education() {
                         viewport={{ once: true }}
                         className="text-emerald-400 font-semibold text-sm md:text-base mb-2"
                       >
-                        2024 - Present
+                        Passing Year 2018
                       </motion.p>
                       <motion.h3 
                         initial={{ opacity: 0, y: 10 }}
@@ -96,7 +74,7 @@ export default function Education() {
                         viewport={{ once: true }}
                         className="text-xl md:text-2xl font-bold text-white mb-2"
                       >
-                        BACHELOR DEGREE
+                        Master of Social Science (MSS) <br /> in Economics
                       </motion.h3>
                       <motion.p 
                         initial={{ opacity: 0 }}
@@ -215,7 +193,7 @@ export default function Education() {
                         viewport={{ once: true }}
                         className="text-emerald-400 font-semibold text-sm  md:text-base mb-2"
                       >
-                        2021 - 2022
+                        Passing Year 2016
                       </motion.p>
                       <motion.h3 
                         initial={{ opacity: 0, y: 10 }}
@@ -224,7 +202,7 @@ export default function Education() {
                         viewport={{ once: true }}
                         className="text-xl md:text-2xl font-bold  text-white mb-2"
                       >
-                        HIGHER SECONDARY CERTIFICATE
+                        Bachelor of Social Science (BSS) <br /> in Economics
                       </motion.h3>
                       <motion.p 
                         initial={{ opacity: 0 }}
@@ -233,7 +211,7 @@ export default function Education() {
                         viewport={{ once: true }}
                         className="text-zinc-300 text-sm md:text-base"
                       >
-                        padma govt college
+                        National University of Bangladesh
                       </motion.p>
                     </div>
                   </div>
