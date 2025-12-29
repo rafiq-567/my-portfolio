@@ -10,7 +10,7 @@ export default function Projects() {
     <section
       id="projects"
       className="py-20 min-h-screen flex justify-center"
-      style={{ backgroundColor: "var(--background-color)" }}
+      // style={{ backgroundColor: "var(--background-color)" }}
     >
       {/* OUTER WRAPPER – FORCES CENTER */}
       <div className="w-full max-w-7xl px-6">

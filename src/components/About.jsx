@@ -37,7 +37,7 @@ export default function About() {
   ];
 
   return ( 
-    <section id="about" className="min-h-screen z-50 relative  flex flex-col-2 justify-center items-center bg-[#0a0a0a] text-white py-20 mt-20 px-6 lg:px-20">
+    <section id="about" className="min-h-screen z-50 relative  flex flex-col-2 justify-center items-center text-white py-20 mt-20 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto  gap-16 justify-center items-center">
         
         {/* LEFT SIDE: Content */}

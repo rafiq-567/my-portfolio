@@ -2,52 +2,36 @@ import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { profile } from '../data/Profile';
-import photo from '../assets/20210118_141130.jpg';
-import { Spotlight } from "./ui/Spotlight";
+import photo from '../assets/final.png';
+import { Spotlight } from './ui/Spotlight';
+
 
 export default function Hero() {
   return (
-    // Main Container: Needs 'relative' and 'overflow-hidden' for the spotlight to work
     <section
       className="relative min-h-screen w-full flex items-center justify-center antialiased"
-      style={{ backgroundColor: "var(--background-color)" }}
+
     >
-
-
-      {/* Layer 1: The Spotlight Effect */}
-      {/* <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" /> */}
-      {/* Ambient Spotlights */}
-       <Spotlight
-        className="-top-40 -left-40 z-0"
-        fill="#6366f1" // indigo
-      />
-      {/* <Spotlight
-        className="top-0 right-0 z-0"
-        fill="#a855f7" // purple
-      /> */}
       <Spotlight
-        className="bottom-[-20%] left-[20%] z-0"
-        fill="#22d3ee" // cyan
+        className="-top-40 -left-40 z-0"
+        fill="rgba(255,255,255,0.06)"
       />
-    
+
+      <Spotlight
+        className="bottom-[-25%] left-[20%] z-0"
+        fill="rgba(255,255,255,0.04)"
+      />
 
 
-      {/* Layer 2: Dot Grid Background */}
-      {/* This creates the dots. The 'mask-image' makes them fade out toward the edges */}
-     <div
-  className="absolute inset-0 bg-grid p-8 pointer-events-none z-1"
-  style={{
-    maskImage: "radial-gradient(ellipse at center, black 50%, transparent 85%)",
-    WebkitMaskImage: "radial-gradient(ellipse at center, black 50%, transparent 85%)"
-  }}
-/>
+      <div
+        className="absolute inset-0 bg-grid p-8 pointer-events-none z-1"
+        style={{
+          maskImage: "radial-gradient(ellipse at center, black 50%, transparent 85%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, black 50%, transparent 85%)"
+        }}
+      />
 
 
-
- 
-
-
-      {/* Layer 3: Your Content */}
       <div className="container mx-auto px-6 z-10 relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
@@ -81,7 +65,6 @@ export default function Hero() {
             className="flex justify-center md:justify-end"
           >
             <div className="relative group">
-              {/* Animated Glow behind the image */}
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img src={photo} alt={profile.name} className="object-cover w-full h-full scale-105 group-hover:scale-110 transition duration-500" />
