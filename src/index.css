@@ -1,5 +1,18 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+/* Add this right after your imports */
+@theme {
+  --color-scheme: dark; /* Sets dark mode as default */
+}
+
+/* Force dark mode class-based approach */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: dark; /* Override system preference */
+  }
+}
+
+
 
 .app-gradient-bg {
   background-image: linear-gradient(
@@ -17,23 +30,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* :root {
-  --background-color: #f6f6f6;
-  --foreground-color: #003cff;
-  --primary-text-color: #0a0a0a;
-  --secondary-text-color: #ffffff;
-  --toggle-bg: #f0eb9d;
-  --toggle-fg: #ffd000;
-} */
-
-/* [data-theme="dark"] {
-  --background-color: #0a0a0a;
-  --foreground-color: #567aff;
-  --primary-text-color: #f6f6f6;
-  --secondary-text-color: #0a0a0a;
-  --toggle-bg: #283452;
-  --toggle-fg: #00a6ff;
-} */
 
 
 :root {

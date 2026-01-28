@@ -24,6 +24,9 @@ export default function Education() {
         </motion.h2>
         
       </div>
+      <div>
+        <br />
+      </div>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Timeline container */}

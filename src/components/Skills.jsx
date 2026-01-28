@@ -68,7 +68,7 @@ export default function Skills() {
   return (
     <section id="skills" className=" py-32 overflow-hidden relative z-50 min-h-screen ">
       <div className=" mx-auto px-6 mb-20 text-center">
-        <h2 className="text-5xl  font-extrabold text-white mb-4 tracking-tighter italic">
+        <h2 className="text-5xl  font-extrabold text-white mb-4 tracking-tighter italic"> <br />
           Technologies I <span className="text-fuchsia-500">Master</span>
         </h2>
         
@@ -76,7 +76,7 @@ export default function Skills() {
 
       <div className="flex flex-col gap-12 text-center">
         <p className="text-gray-500 text-lg mx-auto italic">
-          Frontend
+          <br /> Frontend
         </p>
         <MarqueeRow items={frontendSkills} direction="left" />
         <p className="text-gray-500 text-lg  mx-auto italic">

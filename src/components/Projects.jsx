@@ -1,4 +1,3 @@
-
 import { Link } from "react-router";
 import { projects } from "../data/projects.jsx";
 import { CometCard } from "./ui/CometCard";
@@ -10,21 +9,22 @@ export default function Projects() {
     <section
       id="projects"
       className="py-20 min-h-screen flex justify-center"
-      // style={{ backgroundColor: "var(--background-color)" }}
     >
       {/* OUTER WRAPPER – FORCES CENTER */}
       <div className="w-full max-w-7xl px-6">
 
-        {/* TITLE */}
+        {/* TITLE - Using CSS variable */}
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-20 text-center text-black dark:text-white"
+          className="text-4xl font-bold mb-20 text-center"
+          style={{ color: 'var(--primary-text-color)' }}
         >
-          My Projects
+         <br /> My Projects
         </motion.h2>
-
+        <div><br /></div>
+        
         {/* GRID – HARD CENTERED */}
         <div
           className="
@@ -32,11 +32,12 @@ export default function Projects() {
             grid-cols-1 
             md:grid-cols-2 
             lg:grid-cols-3 
-            
+            gap-y-6
             justify-items-center
             mx-auto
           "
         >
+          
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -54,31 +55,34 @@ export default function Projects() {
               >
                 <CometCard className="flex flex-col h-full p-6 hover:shadow-2xl transition-shadow">
 
-               
-
                   {/* CONTENT */}
                   <div className="flex flex-col flex-grow text-center">
-                    <h3 className="text-xl font-semibold text-black dark:text-white">
+                    {/* Project title - Using CSS variable */}
+                    <h3 
+                      className="text-xl font-semibold"
+                      style={{ color: 'var(--primary-text-color)' }}
+                    >
                       {project.name}
                     </h3>
 
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-3">
+                    <p className="text-sm text-zinc-600 dark:text-zinc-100 mt-2 line-clamp-3" style={{ color: 'var(--primary-text-color)' }}>
                       {project.description}
                     </p>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <br />
+                    <div className="mt-4 flex h-8 gap-2 justify-center items-center">
                       {project.stack?.map((tech, i) => (
                         <span
                           key={i}
-                          className="bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-200 text-xs px-2 py-1 rounded"
+                          className="border-2 w-17 border-white/30 rounded text-white text-sm px-4 py-2 inline-block"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
+                  <br />
 
-                     {/* IMAGE */}
+                  {/* IMAGE */}
                   <div className="overflow-hidden rounded-lg mb-4">
                     <img
                       src={project.image}
@@ -88,14 +92,25 @@ export default function Projects() {
                   </div>
 
                   {/* BUTTON */}
-                  <div className="mt-6">
-                    <Link
-                      to={`/projects/${project.id}`}
-                      className="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg transition-colors"
-                    >
-                      View Details
-                    </Link>
-                  </div>
+               <div className="mt-6">
+  <Link
+    to={`/projects/${project.id}`}
+    className="
+      block w-full text-center
+      border border-white/20
+      backdrop-blur-md
+      bg-white/10
+      text-white font-medium
+      px-5 py-2.5 rounded-xl
+      transition-all duration-300
+      hover:bg-white/20
+      hover:border-white/40
+    "
+  >
+    View Details
+  </Link>
+</div>
+
 
                 </CometCard>
               </Tilt>

@@ -12,6 +12,8 @@ import useLocalStorage from 'use-local-storage'
 export default function App() {
   const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [isDark, setIsDark] = useLocalStorage("isDark", preference);
+  // In main.jsx or App.jsx
+document.documentElement.classList.add('dark');
 
   return (
     <div

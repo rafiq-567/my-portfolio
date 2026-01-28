@@ -22,3 +22,5 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </React.StrictMode>
 )
+
+document.documentElement.classList.add('dark')

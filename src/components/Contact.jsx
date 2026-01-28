@@ -1,23 +1,61 @@
-
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import * as THREE from 'three';
 import { profile } from '../data/Profile'
-// Mock profile data - replace with your actual import
-// const profile = {
-//   email: "your@email.com",
-//   phone: "+1234567890",
-//   whatsapp: "1234567890",
-//   location: "Dhaka, Bangladesh"
-// };
+
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    // Using Web3Forms (free, no signup needed for testing)
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '1fb6e2d0-ba88-4880-9d66-6f3caaee8f1d', // Get free key from web3forms.com
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus(''), 3000);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+      console.error('Error:', error);
+    }
+  };
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="relative min-h-screen w-full overflow-hidden py-20"
-      style={{ backgroundColor: "var(--background-color)" }}
+
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-grid pointer-events-none opacity-20" />
@@ -27,6 +65,7 @@ export default function Contact() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-16">
+          <div> <br /> <br /></div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -34,8 +73,9 @@ export default function Contact() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6"
           >
-            <Mail className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm font-medium text-indigo-400 tracking-wide">
+            <Mail className="w-4 h-4  text-indigo-400" />
+
+            <span className="text-sm font-medium p-4 text-indigo-400 tracking-wide">
               GET IN TOUCH
             </span>
           </motion.div>
@@ -62,11 +102,11 @@ export default function Contact() {
             Have a project in mind? Let's work together to create something amazing.
           </motion.p>
         </div>
-
+        <div><br /></div>
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          
-          {/* LEFT SIDE - Globe */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+
+          {/* LEFT SIDE - Globe Only */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -75,110 +115,117 @@ export default function Contact() {
             className="relative"
           >
             <Globe3D />
-            
-            {/* Contact Info Cards */}
-            <div className="mt-8 space-y-4">
-              <ContactInfoCard 
-                icon={<Mail className="w-5 h-5" />}
-                label="Email"
-                value={profile.email}
-                href={`mailto:${profile.email}`}
-              />
-              <ContactInfoCard 
-                icon={<Phone className="w-5 h-5" />}
-                label="Phone"
-                value={profile.phone}
-                href={`tel:${profile.phone}`}
-              />
-              <ContactInfoCard 
-                icon={<MapPin className="w-5 h-5" />}
-                label="Location"
-                value={profile.location}
-              />
-            </div>
           </motion.div>
 
-          {/* RIGHT SIDE - Contact Form */}
+          {/* RIGHT SIDE - Contact Form and Info */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="flex flex-col gap-8"
           >
-            <div className="relative group">
+            {/* Contact Form */}
+            <div className="relative group ">
               {/* Glow effect */}
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 blur group-hover:opacity-20 transition-opacity duration-500" />
-              
+
               {/* Form Container */}
-              <div 
-                className="relative rounded-2xl bg-gray-900 border p-8"
-                
+              <div
+                className="relative rounded-2xl bg-gray-900 border border-gray-800 p-8"
               >
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-6 " onSubmit={handleSubmit}>
                   <div>
-                    <label 
-                      className="block text-sm font-medium mb-3"
-                      
+                    <label
+                      className="block  text-sm font-medium mb-3 text-gray-300 pl-1"
                     >
-                      Your Name
+                    Your Name
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                       placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-lg border bg-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
-                      style={{ 
-                        borderColor: "var(--border-color, rgba(255,255,255,0.1))",
-                        color: "var(--primary-text-color)"
-                      }}
+                      className="w-full px-5 py-4 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                     />
                   </div>
 
                   <div>
-                    <label 
-                      className="block text-sm font-medium mb-2"
-                      style={{ color: "var(--primary-text-color)" }}
+                    <label
+                      className="block text-sm font-medium mb-3 text-gray-300 pl-1"
                     >
                       Your Email
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       placeholder="john@example.com"
-                      className="w-full px-4 py-3 rounded-lg border bg-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all"
-                      style={{ 
-                        borderColor: "var(--border-color, rgba(255,255,255,0.1))",
-                        color: "var(--primary-text-color)"
-                      }}
+                      className="w-full px-5 py-4 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                     />
                   </div>
 
                   <div>
-                    <label 
-                      className="block text-sm font-medium mb-2"
-                      style={{ color: "var(--primary-text-color)" }}
+                    <label
+                      className="block text-sm font-medium mb-3 text-gray-300 pl-1"
                     >
                       Message
                     </label>
                     <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                       rows="5"
                       placeholder="Your message here..."
-                      className="w-full px-4 py-3 rounded-lg border bg-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none"
-                      style={{ 
-                        borderColor: "var(--border-color, rgba(255,255,255,0.1))",
-                        color: "var(--primary-text-color)"
-                      }}
+                      className="w-full px-5 py-4 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    disabled={status === 'sending'}
+                    className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {status === 'sending' ? 'Sending...' : 'Send Message'}
                     <Send className="w-4 h-4" />
                   </button>
+
+                  {status === 'success' && (
+                    <p className="text-green-400 text-center text-sm">Message sent successfully! ✓</p>
+                  )}
+                  {status === 'error' && (
+                    <p className="text-red-400 text-center text-sm">Failed to send. Please try again.</p>
+                  )}
                 </form>
               </div>
+            </div>
+
+            {/* Contact Info Cards - Below Form */}
+            <div
+              className="rounded-2xl bg-gray-900 border border-gray-800 p-6 space-y-4"
+            >
+              <ContactInfoCard
+                icon={<Mail className="w-5 h-5" />}
+                label="Email"
+                value={profile.email}
+                href={`mailto:${profile.email}`}
+              />
+              <ContactInfoCard
+                icon={<Phone className="w-5 h-5" />}
+                label="Phone"
+                value={profile.phone}
+                href={`tel:${profile.phone}`}
+              />
+              <ContactInfoCard
+                icon={<MapPin className="w-5 h-5" />}
+                label="Location"
+                value={profile.location}
+              />
             </div>
           </motion.div>
         </div>
@@ -199,7 +246,7 @@ function Globe3D() {
     // Scene setup
     const scene = new THREE.Scene();
     sceneRef.current = scene;
-    
+
     const camera = new THREE.PerspectiveCamera(
       45,
       mountRef.current.clientWidth / mountRef.current.clientHeight,
@@ -208,9 +255,9 @@ function Globe3D() {
     );
     camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: true, 
-      alpha: true 
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true
     });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
@@ -219,7 +266,7 @@ function Globe3D() {
 
     // Globe
     const geometry = new THREE.SphereGeometry(1.5, 64, 64);
-    
+
     // Create wireframe material
     const material = new THREE.MeshBasicMaterial({
       color: 0x6366f1,
@@ -227,7 +274,7 @@ function Globe3D() {
       transparent: true,
       opacity: 0.3
     });
-    
+
     const globe = new THREE.Mesh(geometry, material);
     scene.add(globe);
 
@@ -235,26 +282,26 @@ function Globe3D() {
     const pointsGeometry = new THREE.BufferGeometry();
     const pointsCount = 100;
     const positions = new Float32Array(pointsCount * 3);
-    
+
     for (let i = 0; i < pointsCount; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
       const radius = 1.51;
-      
+
       positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
     }
-    
+
     pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    
+
     const pointsMaterial = new THREE.PointsMaterial({
       color: 0xa855f7,
       size: 0.05,
       transparent: true,
       opacity: 0.8
     });
-    
+
     const points = new THREE.Points(pointsGeometry, pointsMaterial);
     scene.add(points);
 
@@ -269,28 +316,28 @@ function Globe3D() {
     // Animation
     let mouseX = 0;
     let mouseY = 0;
-    
+
     const handleMouseMove = (e) => {
       mouseX = (e.clientX / window.innerWidth) * 2 - 1;
       mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
 
     const animate = () => {
       requestAnimationFrame(animate);
-      
+
       // Rotate globe
       globe.rotation.y += 0.002;
       points.rotation.y += 0.002;
-      
+
       // Mouse interaction
       globe.rotation.x += (mouseY * 0.1 - globe.rotation.x) * 0.05;
       globe.rotation.y += (mouseX * 0.1 - globe.rotation.y) * 0.05;
-      
+
       renderer.render(scene, camera);
     };
-    
+
     animate();
 
     // Handle resize
@@ -300,7 +347,7 @@ function Globe3D() {
       camera.updateProjectionMatrix();
       renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     };
-    
+
     window.addEventListener('resize', handleResize);
 
     // Cleanup
@@ -319,9 +366,9 @@ function Globe3D() {
   }, []);
 
   return (
-    <div 
-      ref={mountRef} 
-      className="w-full h-[400px] rounded-2xl relative overflow-hidden"
+    <div
+      ref={mountRef}
+      className="w-full h-[500px] rounded-2xl relative overflow-hidden"
       style={{
         background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%)'
       }}
@@ -333,36 +380,32 @@ function Globe3D() {
 function ContactInfoCard({ icon, label, value, href }) {
   const content = (
     <>
-      <div className="p-3 rounded-lg bg-indigo-500/10 text-indigo-600">
+      <div className="p-3 rounded-lg bg-indigo-500/10 text-indigo-400">
         {icon}
       </div>
       <div className="flex-1">
-        <p className="text-sm opacity-60" style={{ color: "var(--secondary-text-color)" }}>
+        <p className="text-sm text-gray-400 mb-1">
           {label}
         </p>
-        <p className="font-medium" style={{ color: "var(--primary-text-color)" }}>
+        <p className="font-medium text-white">
           {value}
         </p>
       </div>
     </>
   );
 
-  const baseClasses = "flex items-center gap-4 p-4 rounded-xl border transition-all duration-300 hover:border-indigo-500/30";
-  const style = {
-    backgroundColor: "var(--foreground-color)",
-    borderColor: "var(--border-color, rgba(255,255,255,0.1))"
-  };
+  const baseClasses = "flex items-center gap-4 p-4 rounded-lg bg-gray-800/30 border border-gray-700/50 transition-all duration-300 hover:bg-gray-800/50 hover:border-indigo-500/30";
 
   if (href) {
     return (
-      <a href={href} className={baseClasses} style={style}>
+      <a href={href} className={baseClasses}>
         {content}
       </a>
     );
   }
 
   return (
-    <div className={baseClasses} style={style}>
+    <div className={baseClasses}>
       {content}
     </div>
   );

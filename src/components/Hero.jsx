@@ -9,7 +9,7 @@ import { Spotlight } from './ui/Spotlight';
 export default function Hero() {
   return (
     <section
-    id="hero"
+    id="home"
       className="relative min-h-screen w-full flex items-center justify-center antialiased"
 
     >
