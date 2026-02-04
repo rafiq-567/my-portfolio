@@ -21,7 +21,7 @@ export const projects = [
     name: "BigBoom",
     image: bigBoom,
     stack: ["Next.js", "Prisma", "Typescript", "Postgre SQL", "Neon", "Bcrypt"],
-    description: "The Tour Management System is a full-stack web application designed to simplify and automate the process of planning, booking, and managing tours. This platform efficiently serves travelers, administrators, and moderators, enabling seamless tour booking, room management, payment tracking, and monitoring — all in one system.",
+    description: "igBoom is a modern furniture e-commerce web application built with Next.js, TypeScript, and Prisma. It offers a smooth, responsive user experience with secure authentication and scalable backend architecture. Designed for performance and maintainability, BigBoom focuses on clean UI, efficient data handling, and future-ready features for online furniture shopping.",
     live: "https://big-boom.vercel.app/",
     github: "https://github.com/rafiq-567/big-boom",
     challenges: "Implementing Authentication with NextAuth.",
