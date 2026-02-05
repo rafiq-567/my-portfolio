@@ -47,7 +47,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         //   className="sticky top-24" // Keeps text visible as you scroll the cards
         >
-          <h2 className="text-3xl text-center font-bold text-fuchsia-300 mb-8">
+          <h2 className="text-4xl text-center font-bold text-white mb-8">
            <br /> <br /> About Me</h2>
           <div className="space-y-6 text-center text-gray-300 text-lg leading-relaxed">
             <p>

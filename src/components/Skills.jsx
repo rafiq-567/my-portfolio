@@ -69,7 +69,7 @@ export default function Skills() {
     <section id="skills" className=" py-32 overflow-hidden relative z-50 min-h-screen ">
       <div className=" mx-auto px-6 mb-20 text-center">
         <h2 className="text-5xl  font-extrabold text-white mb-4 tracking-tighter italic"> <br />
-          Technologies I <span className="text-fuchsia-500">Master</span>
+          Technologies I Master
         </h2>
         
       </div>

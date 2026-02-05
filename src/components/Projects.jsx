@@ -18,8 +18,8 @@ export default function Projects() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-20 text-center"
-          style={{ color: 'var(--primary-text-color)' }}
+          className="text-4xl font-bold mb-20 text-center text-white"
+          // style={{ color: 'var(--primary-text-color)' }}
         >
          <br /> My Projects
         </motion.h2>

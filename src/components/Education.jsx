@@ -15,7 +15,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="text-center text-4xl md:text-5xl font-bold tracking-tight"
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 ">
+          <span className=" bg-clip-text text-white ">
             <br />
             <br />
             <br />

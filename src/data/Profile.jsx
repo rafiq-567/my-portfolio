@@ -1,10 +1,10 @@
 import photo from '../assets/20210118_141130.jpg'
 export const profile = {
   name: "MD. RAFIQUL AKHTER",
-  designation: "MERN Stack Developer",
+  designation: "Frontend Focused Full-Stack Developer",
   intro: "Building Scalable Full-Stack Solutions with the MERN Stack.",
-  photo: "../assets/20210118_141130.jpg", // put your photo in public/assets
-  resume: "/assets/Resume.pdf",     // put your resume in public/assets (if ready)
+  photo: "../assets/20210118_141130.jpg", 
+  resume: "/public/Full stack Developer.pdf",     
   socials: {
     github: "https://github.com/rafiq-567",
     linkedin: "https://www.linkedin.com/in/md-rafiqul-akhter-b39610379/",
