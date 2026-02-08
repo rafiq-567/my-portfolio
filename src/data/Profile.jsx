@@ -1,10 +1,11 @@
 import photo from '../assets/20210118_141130.jpg'
+import resumePdf from '../assets/Full stack Developer.pdf'
 export const profile = {
   name: "MD. RAFIQUL AKHTER",
   designation: "Frontend Focused Full-Stack Developer",
   intro: "Building Scalable Full-Stack Solutions with the MERN Stack.",
   photo: photo, 
-  resume: "/public/Full stack Developer.pdf",     
+  resume: resumePdf,     
   socials: {
     github: "https://github.com/rafiq-567",
     linkedin: "https://www.linkedin.com/in/md-rafiqul-akhter-b39610379/",

@@ -7,6 +7,16 @@ import { Spotlight } from './ui/Spotlight';
 
 
 export default function Hero() {
+    // ✅ Add download handler
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = profile.resume;
+    link.download = 'MD_Rafiqul_Akhter_Resume.pdf'; // Custom filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
     id="home"
@@ -49,9 +59,12 @@ export default function Hero() {
             <p className="mt-6 max-w-lg text-zinc-400 text-lg leading-relaxed">{profile.intro}</p>
 
             <div className="flex items-center gap-4 mt-8">
-              <a href={profile.resume} download className="btn btn-primary rounded-full px-8 shadow-lg shadow-indigo-500/20">
+              <button 
+                onClick={handleDownload}
+                className="btn btn-primary rounded-full px-8 shadow-lg shadow-indigo-500/20"
+              >
                 Download Resume
-              </a>
+              </button>
               <div className="flex gap-5 ml-4">
                 <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaGithub size={24} /></a>
                 <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaLinkedin size={24} /></a>
