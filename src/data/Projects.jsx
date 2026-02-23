@@ -5,19 +5,9 @@ import sixTour from '../assets/sixTour.JPG'
 import bigBoom from '../assets/bigBoom.JPG'
 import eagle3d from '../assets/eagle3d.JPG'
 export const projects = [
+
   {
     id: "p1",
-    name: "Health Hub App",
-    image: pic12,
-    stack: ["React", "Tailwind", "Express.js", "MongoDB", "Stripe", "JWT"],
-    description: "A comprehensive multi-vendor e-commerce platform for medicines and healthcare products, built with the MERN stack. Enables users to purchase medications, submit queries, and receive expert advice with a seamless shopping experience.",
-    live: "https://health-hub-7c64c.web.app",
-    github: "https://github.com/rafiq-567/B11-Assignment-12",
-    challenges: "Responsive layout, image optimization, deployment.",
-    improvements: "Add CMS, blog, animations."
-  },
-  {
-    id: "p2",
     name: "BigBoom",
     image: bigBoom,
     stack: ["Next.js", "Prisma", "Typescript", "Postgre SQL", "Neon", "Bcrypt"],
@@ -26,6 +16,18 @@ export const projects = [
     github: "https://github.com/rafiq-567/big-boom",
     challenges: "Implementing Authentication with NextAuth.",
     improvements: "Introduce offline access, Integrating SSLcommerz, real-time notifications"
+
+  },
+  {
+    id: "p2",
+    name: "Eagle3d App",
+    image: eagle3d,
+    stack: ["Node.js", "Redux Toolkit", "typescript", "RTK Query", "Firestore", "JWT"],
+    description: "A modern product management system enabling real-time inventory tracking and updates. Users can securely log in to add, edit, and delete products with changes instantly reflected across all connected clients. Built with enterprise-grade technologies including Next.js, Firebase, and real-time event streaming.",
+    live: "https://eagle3d-frontend-one.vercel.app/",
+    github: "https://github.com/rafiq-567/eagle3d-backend",
+    challenges: "Implementing real time update.",
+    improvements: "Introduce dashboard functionalities for admin help."
 
   },
   {
@@ -39,10 +41,21 @@ export const projects = [
     challenges: "Implementing socket.io and automated budget planner",
     improvements: "Introduce offline access, real-time notifications, enhanced admin analytics, and performance optimizations."
 
+  },
+    {
+    id: "p4",
+    name: "Health Hub App",
+    image: pic12,
+    stack: ["React", "Tailwind", "Express.js", "MongoDB", "Stripe", "JWT"],
+    description: "A comprehensive multi-vendor e-commerce platform for medicines and healthcare products, built with the MERN stack. Enables users to purchase medications, submit queries, and receive expert advice with a seamless shopping experience.",
+    live: "https://health-hub-7c64c.web.app",
+    github: "https://github.com/rafiq-567/B11-Assignment-12",
+    challenges: "Responsive layout, image optimization, deployment.",
+    improvements: "Add CMS, blog, animations."
   }
   ,
   {
-    id: "p4",
+    id: "p5",
     name: "Car Rental App",
     image: pic11,
     stack: ["React", "Tailwind", "Express.js", "MongoDB", "Stripe", "JWT"],
@@ -53,7 +66,7 @@ export const projects = [
     improvements: "Admin dashboard, payment integration."
   },
   {
-    id: "p5",
+    id: "p6",
     name: "Hobby hub",
     image: pic10,
     stack: ["React", "Tailwind", "Express.js", "MongoDB", "Stripe", "JWT"],
@@ -63,16 +76,5 @@ export const projects = [
     challenges: "Sync state and API design.",
     improvements: "Add offline capability and notifications."
   },
-  {
-    id: "p6",
-    name: "Eagle3d App",
-    image: eagle3d,
-    stack: ["Node.js", "Redux Toolkit", "typescript", "RTK Query", "Firestore", "JWT"],
-    description: "A modern product management system enabling real-time inventory tracking and updates. Users can securely log in to add, edit, and delete products with changes instantly reflected across all connected clients. Built with enterprise-grade technologies including Next.js, Firebase, and real-time event streaming.",
-    live: "https://eagle3d-frontend-one.vercel.app/",
-    github: "https://github.com/rafiq-567/eagle3d-backend",
-    challenges: "Implementing real time update.",
-    improvements: "Introduce dashboard functionalities for admin help."
-
-  }
+  
 ]

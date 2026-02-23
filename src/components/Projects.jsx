@@ -62,7 +62,7 @@ export default function Projects() {
                       className="text-xl font-semibold"
                       style={{ color: 'var(--primary-text-color)' }}
                     >
-                      {project.name}
+                      {project.name} 
                     </h3>
 
                     <p className="text-sm text-zinc-600 dark:text-zinc-100 mt-2 line-clamp-3" style={{ color: 'var(--primary-text-color)' }}>

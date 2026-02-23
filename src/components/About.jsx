@@ -56,11 +56,11 @@ export default function About() {
               to crafting fast, responsive, and user-friendly web applications.
             </p>
             <p>
-              Skilled in <span className="text-white italic">React, Tailwind CSS, Node.js, Express.js, and MongoDB.</span>
+              Skilled in <span className="text-white italic">Skilled in React, Next.js, TypeScript, Node.js, Express.js, PostgreSQL, and MongoDB </span>
               I specialize in building scalable architectures and integrating complex APIs.
             </p>
             <br />
-            <p className='text-center'>I'm eager to collaborate on real-world projects, learn from experienced developers, and contribute to open-source communities.
+            <p className='text-center'>I build production-ready applications with clean architecture and modern tooling।
 
             </p>
             <p className="text-sm pl-4 py-1 italic text-gray-400 text-center">
