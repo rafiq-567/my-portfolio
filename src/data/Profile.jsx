@@ -3,7 +3,7 @@ import resumePdf from '../assets/Full stack Developer.pdf'
 export const profile = {
   name: "MD. RAFIQUL AKHTER",
   designation: "Frontend Focused Full-Stack Developer",
-  intro: "Building Scalable Full-Stack Solutions with the MERN Stack.",
+  intro: "Building Scalable Full-Stack Solutions.",
   photo: photo, 
   resume: resumePdf,     
   socials: {
