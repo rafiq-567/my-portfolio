@@ -52,7 +52,9 @@ export default function About() {
           <div className="space-y-6 text-center text-gray-300 text-lg leading-relaxed">
             <p>
               I am <span className="text-white font-semibold">Md. Rafiqul Akhter</span>,
-              a passionate <span className="text-blue-400">MERN Stack Developer</span> dedicated
+              a passionate <span className="text-blue-400">Frontend Focused Full-Stack Developer
+
+</span> dedicated
               to crafting fast, responsive, and user-friendly web applications.
             </p>
             <p>
