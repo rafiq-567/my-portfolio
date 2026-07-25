@@ -36,18 +36,19 @@ export default function About() {
               Skilled in <span className="text-white italic">React, Next.js, TypeScript, Node.js, Express.js, PostgreSQL, and MongoDB </span>
               I specialize in building scalable architectures and integrating complex APIs.
             </p>
-            <br />
+           <br /> 
             <p className='text-center'>I build production-ready applications with clean architecture and modern tooling।
 
             </p>
             <p className="text-sm pl-4 py-1 italic text-gray-400 text-center">
               "I believe in continuous learning and turning complex problems into elegant digital solutions."
             </p>
+            <br />
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <h3 className="text-2xl font-bold mb-2 col-span-full">What I'm Doing</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ">
+          <h3 className="text-2xl font-bold mb-2 col-span-full text-center">What I'm Doing</h3>
           {services.map((service, index) => (
             <motion.div
               key={index}
