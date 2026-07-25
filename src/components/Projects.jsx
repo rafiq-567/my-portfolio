@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { projects } from "../data/projects.jsx";
+import { projects } from "../data/Projects.jsx";
 import { CometCard } from "./ui/CometCard";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
@@ -69,11 +69,11 @@ export default function Projects() {
                       {project.description}
                     </p>
                     <br />
-                    <div className="mt-4 flex h-8 gap-2 justify-center items-center">
+                    <div className="mt-4 flex flex-wrap gap-2 justify-center items-center">
                       {project.stack?.map((tech, i) => (
                         <span
                           key={i}
-                          className="border-2 w-17 border-white/30 rounded text-white text-sm px-4 py-2 inline-block"
+                          className="border border-white/30 rounded text-white text-xs sm:text-sm px-2 sm:px-4 py-1 sm:py-2 inline-block"
                         >
                           {tech}
                         </span>

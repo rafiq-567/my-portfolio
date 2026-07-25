@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
@@ -12,8 +12,14 @@ import useLocalStorage from 'use-local-storage'
 export default function App() {
   const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [isDark, setIsDark] = useLocalStorage("isDark", preference);
-  // In main.jsx or App.jsx
-document.documentElement.classList.add('dark');
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
 
   return (
     <div

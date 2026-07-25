@@ -95,3 +95,13 @@
 .animate-navbar {
   animation: navbar 0.25s ease-out forwards;
 }
+
+.mask-gradient {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}

@@ -37,25 +37,25 @@ export default function Education() {
             whileInView={{ height: "100%" }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent"
+            className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent"
           />
 
           {/* Timeline items */}
           <div className="space-y-24">
             {/* First education item (Bachelor Degree) */}
-            <div className="relative flex items-center justify-center gap-8 md:gap-12">
+            <div className="relative flex flex-col md:flex-row items-start md:items-center justify-center gap-4 md:gap-12">
               {/* Left side content */}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="w-full md:w-1/2 md:pr-12 md:text-right"
+                className="w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 md:text-right"
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="inline-block"
+                  className="block"
                 >
                   <div className="relative group">
                     {/* Card with gradient border */}
@@ -121,7 +121,7 @@ export default function Education() {
               </div>
 
               {/* Right side icon */}
-              <div className="w-full md:w-1/2 md:pl-12">
+              <div className="hidden md:block w-full md:w-1/2 md:pl-12">
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -137,9 +137,9 @@ export default function Education() {
             </div>
 
             {/* Second education item (HSC) */}
-            <div className="relative flex items-center justify-center gap-8 md:gap-12">
+            <div className="relative flex flex-col-reverse md:flex-row items-start md:items-center justify-center gap-4 md:gap-12">
               {/* Left side icon */}
-              <div className="w-full md:w-1/2 md:pr-12 md:text-right">
+              <div className="hidden md:block w-full md:w-1/2 md:pr-12 md:text-right">
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -154,7 +154,7 @@ export default function Education() {
               </div>
 
               {/* Timeline node */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+              <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 z-10">
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -179,12 +179,12 @@ export default function Education() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="w-full md:w-1/2 md:pl-12"
+                className="w-full md:w-1/2 pl-12 md:pl-12"
               >
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="inline-block"
+                  className="block"
                 >
                   <div className="relative group ">
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-2xl blur opacity-0 group-hover:opacity-70 transition duration-300" />

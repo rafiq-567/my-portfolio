@@ -32,7 +32,7 @@ export default function Contact() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '1fb6e2d0-ba88-4880-9d66-6f3caaee8f1d', // Get free key from web3forms.com
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
           name: formData.name,
           email: formData.email,
           message: formData.message,
@@ -134,10 +134,10 @@ export default function Contact() {
               <div
                 className="relative rounded-2xl bg-gray-900 border border-gray-800 p-8"
               >
-                <form className="space-y-6 " onSubmit={handleSubmit}>
-                  <div>
+                <form className="space-y-8" onSubmit={handleSubmit}>
+                  <div className="px-2">
                     <label
-                      className="block  text-sm font-medium mb-3 text-gray-300 pl-1"
+                      className="block text-sm font-medium mb-5 text-gray-300"
                     >
                     Your Name
                     </label>
@@ -148,13 +148,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="John Doe"
-                      className="w-full px-5 py-4 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                     />
                   </div>
 
-                  <div>
+                  <div className="px-2">
                     <label
-                      className="block text-sm font-medium mb-3 text-gray-300 pl-1"
+                      className="block text-sm font-medium mb-5 text-gray-300"
                     >
                       Your Email
                     </label>
@@ -165,13 +165,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
-                      className="w-full px-5 py-4 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                     />
                   </div>
 
-                  <div>
+                  <div className="px-2">
                     <label
-                      className="block text-sm font-medium mb-3 text-gray-300 pl-1"
+                      className="block text-sm font-medium mb-5 text-gray-300"
                     >
                       Message
                     </label>
@@ -182,7 +182,7 @@ export default function Contact() {
                       required
                       rows="5"
                       placeholder="Your message here..."
-                      className="w-full px-5 py-4 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none"
                     />
                   </div>
 
@@ -207,7 +207,7 @@ export default function Contact() {
 
             {/* Contact Info Cards - Below Form */}
             <div
-              className="rounded-2xl bg-gray-900 border border-gray-800 p-6 space-y-4"
+              className="rounded-2xl bg-gray-900 border border-gray-800 p-8 space-y-5"
             >
               <ContactInfoCard
                 icon={<Mail className="w-5 h-5" />}
@@ -314,26 +314,24 @@ function Globe3D() {
     scene.add(pointLight);
 
     // Animation
-    let mouseX = 0;
     let mouseY = 0;
 
     const handleMouseMove = (e) => {
-      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
       mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     };
 
     window.addEventListener('mousemove', handleMouseMove);
 
+    let animFrameId;
     const animate = () => {
-      requestAnimationFrame(animate);
+      animFrameId = requestAnimationFrame(animate);
 
       // Rotate globe
-      globe.rotation.y += 0.002;
-      points.rotation.y += 0.002;
+      globe.rotation.y += 0.003;
+      points.rotation.y += 0.003;
 
-      // Mouse interaction
-      globe.rotation.x += (mouseY * 0.1 - globe.rotation.x) * 0.05;
-      globe.rotation.y += (mouseX * 0.1 - globe.rotation.y) * 0.05;
+      // Mouse tilt (only affects x rotation so y spins freely)
+      globe.rotation.x += (mouseY * 0.05 - globe.rotation.x) * 0.02;
 
       renderer.render(scene, camera);
     };
@@ -352,6 +350,7 @@ function Globe3D() {
 
     // Cleanup
     return () => {
+      cancelAnimationFrame(animFrameId);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       if (mountRef.current && renderer.domElement) {
@@ -368,7 +367,7 @@ function Globe3D() {
   return (
     <div
       ref={mountRef}
-      className="w-full h-[500px] rounded-2xl relative overflow-hidden"
+      className="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl relative overflow-hidden"
       style={{
         background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%)'
       }}
@@ -394,7 +393,7 @@ function ContactInfoCard({ icon, label, value, href }) {
     </>
   );
 
-  const baseClasses = "flex items-center gap-4 p-4 rounded-lg bg-gray-800/30 border border-gray-700/50 transition-all duration-300 hover:bg-gray-800/50 hover:border-indigo-500/30";
+  const baseClasses = "flex items-center gap-5 px-5 py-4 rounded-lg bg-gray-800/30 border border-gray-700/50 transition-all duration-300 hover:bg-gray-800/50 hover:border-indigo-500/30";
 
   if (href) {
     return (

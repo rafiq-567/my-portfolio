@@ -3,7 +3,6 @@ import pic11 from '../assets/11s1.JPG'
 import pic12 from '../assets/12s1.JPG'
 import sixTour from '../assets/sixTour.JPG'
 import bigBoom from '../assets/bigBoom.JPG'
-// import eagle3d from '../assets/eagle3d.JPG'
 import mamlaManager from '../assets/mamlaManager.png'
 export const projects = [
 
@@ -23,7 +22,7 @@ export const projects = [
     id: "p2",
     name: "Mamla-Manager",
     image: mamlaManager,
-    stack: ["Next.js", "Zustand", "TypeScript", "Tanstack Query", "Mongoose", "JWT"],
+    stack: ["Next.js", "Zustand", "Typescript", "NodeJS", "Mongoose", "JWT"],
     description: "MamlaManager is a comprehensive legal case management platform that helps lawyers and legal professionals organize cases, manage clients, and track court proceedings — all in one system. It features secure authentication with role-based access, an intuitive dashboard with real-time analytics, document management with cloud storage, and smart hearing reminders. The platform streamlines daily legal workflows with powerful search, filtering, and case tracking capabilities.",
     live: "https://mamla-manager.vercel.app/",
     github: "https://github.com/rafiq-567/mamla-manager",

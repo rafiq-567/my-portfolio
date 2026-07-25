@@ -66,9 +66,9 @@ const MarqueeRow = ({ items, direction = "left" }) => {
 
 export default function Skills() {
   return (
-    <section id="skills" className=" py-32 overflow-hidden relative z-50 min-h-screen ">
+    <section id="skills" className="py-16 md:py-32 overflow-hidden relative z-50 min-h-screen">
       <div className=" mx-auto px-6 mb-20 text-center">
-        <h2 className="text-5xl  font-extrabold text-white mb-4 tracking-tighter italic"> <br />
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tighter italic"> <br />
           Technologies I Master
         </h2>
         
@@ -85,17 +85,6 @@ export default function Skills() {
         <MarqueeRow items={backendSkills} direction="right" />
       </div>
 
-      <style jsx>{`
-        .mask-gradient {
-          mask-image: linear-gradient(
-            to right,
-            transparent,
-            black 15%,
-            black 85%,
-            transparent
-          );
-        }
-      `}</style>
     </section>
   );
 }

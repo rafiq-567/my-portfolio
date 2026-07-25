@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { profile } from '../data/Profile';
 import photo from '../assets/final.png';
@@ -66,8 +66,8 @@ export default function Hero() {
                 Download Resume
               </button>
               <div className="flex gap-5 ml-4">
-                <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaGithub size={24} /></a>
-                <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaLinkedin size={24} /></a>
+                <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaGithub size={24} /></a>
+                <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaLinkedin size={24} /></a>
               </div>
             </div>
           </motion.div>
@@ -80,7 +80,7 @@ export default function Hero() {
           >
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
+              <div className="relative w-48 sm:w-64 h-48 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-white/10 shadow-2xl">
                 <img src={photo} alt={profile.name} className="object-cover w-full h-full scale-105 group-hover:scale-110 transition duration-500" />
               </div>
             </div>
