@@ -3,7 +3,8 @@ import pic11 from '../assets/11s1.JPG'
 import pic12 from '../assets/12s1.JPG'
 import sixTour from '../assets/sixTour.JPG'
 import bigBoom from '../assets/bigBoom.JPG'
-import eagle3d from '../assets/eagle3d.JPG'
+// import eagle3d from '../assets/eagle3d.JPG'
+import mamlaManager from '../assets/mamlaManager.png'
 export const projects = [
 
   {
@@ -20,14 +21,14 @@ export const projects = [
   },
   {
     id: "p2",
-    name: "Eagle3d App",
-    image: eagle3d,
-    stack: ["Node.js", "Redux Toolkit", "typescript", "RTK Query", "Firestore", "JWT"],
-    description: "A modern product management system enabling real-time inventory tracking and updates. Users can securely log in to add, edit, and delete products with changes instantly reflected across all connected clients. Built with enterprise-grade technologies including Next.js, Firebase, and real-time event streaming.",
-    live: "https://eagle3d-frontend-one.vercel.app/",
-    github: "https://github.com/rafiq-567/eagle3d-backend",
+    name: "Mamla-Manager",
+    image: mamlaManager,
+    stack: ["Next.js", "Zustand", "TypeScript", "Tanstack Query", "Mongoose", "JWT"],
+    description: "MamlaManager is a comprehensive legal case management platform that helps lawyers and legal professionals organize cases, manage clients, and track court proceedings — all in one system. It features secure authentication with role-based access, an intuitive dashboard with real-time analytics, document management with cloud storage, and smart hearing reminders. The platform streamlines daily legal workflows with powerful search, filtering, and case tracking capabilities.",
+    live: "https://mamla-manager.vercel.app/",
+    github: "https://github.com/rafiq-567/mamla-manager",
     challenges: "Implementing real time update.",
-    improvements: "Introduce dashboard functionalities for admin help."
+    improvements: "Awesome landing page for users."
 
   },
   {
