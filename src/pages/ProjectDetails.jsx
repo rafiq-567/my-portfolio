@@ -2,11 +2,11 @@ import { useParams, Link } from "react-router";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Github, Code2, Lightbulb, TrendingUp } from "lucide-react";
 
-import Projects from "../components/Projects.jsx";
+import { projects } from "../data/Projects.jsx";
 
 export default function ProjectDetails() {
   const { id } = useParams();
-  const project = Projects.find((p) => p.id === id);
+  const project = projects.find((p) => p.id === id);
 
   if (!project) {
     return (
