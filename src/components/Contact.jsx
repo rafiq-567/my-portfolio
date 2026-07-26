@@ -237,16 +237,13 @@ export default function Contact() {
 /* ================= 3D GLOBE COMPONENT ================= */
 function Globe3D() {
   const mountRef = useRef(null);
-  const rendererRef = useRef(null);
-  const sceneRef = useRef(null);
+  const isVisibleRef = useRef(true);
+  const animFrameRef = useRef(null);
 
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Scene setup
     const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
     const camera = new THREE.PerspectiveCamera(
       45,
       mountRef.current.clientWidth / mountRef.current.clientHeight,
@@ -255,102 +252,84 @@ function Globe3D() {
     );
     camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true
-    });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
 
-    // Globe
+    // --- globe, points, lighting setup stays exactly as you have it ---
     const geometry = new THREE.SphereGeometry(1.5, 64, 64);
-
-    // Create wireframe material
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x6366f1,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.3
-    });
-
+    const material = new THREE.MeshBasicMaterial({ color: 0x6366f1, wireframe: true, transparent: true, opacity: 0.3 });
     const globe = new THREE.Mesh(geometry, material);
     scene.add(globe);
 
-    // Add points (cities/locations)
     const pointsGeometry = new THREE.BufferGeometry();
     const pointsCount = 100;
     const positions = new Float32Array(pointsCount * 3);
-
     for (let i = 0; i < pointsCount; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(Math.random() * 2 - 1);
       const radius = 1.51;
-
       positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
     }
-
     pointsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-    const pointsMaterial = new THREE.PointsMaterial({
-      color: 0xa855f7,
-      size: 0.05,
-      transparent: true,
-      opacity: 0.8
-    });
-
+    const pointsMaterial = new THREE.PointsMaterial({ color: 0xa855f7, size: 0.05, transparent: true, opacity: 0.8 });
     const points = new THREE.Points(pointsGeometry, pointsMaterial);
     scene.add(points);
 
-    // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
-
     const pointLight = new THREE.PointLight(0x6366f1, 1);
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
 
-    // Animation
     let mouseY = 0;
-
     const handleMouseMove = (e) => {
       mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     };
-
     window.addEventListener('mousemove', handleMouseMove);
 
-    let animFrameId;
+    // --- the animation loop, now visibility-aware ---
     const animate = () => {
-      animFrameId = requestAnimationFrame(animate);
+      if (!isVisibleRef.current) return; // stop scheduling while off-screen
+      animFrameRef.current = requestAnimationFrame(animate);
 
-      // Rotate globe
       globe.rotation.y += 0.003;
       points.rotation.y += 0.003;
-
-      // Mouse tilt (only affects x rotation so y spins freely)
       globe.rotation.x += (mouseY * 0.05 - globe.rotation.x) * 0.02;
 
       renderer.render(scene, camera);
     };
 
-    animate();
+    // --- watches the container, restarts the loop on re-entry ---
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisibleRef.current;
+        isVisibleRef.current = entry.isIntersecting;
 
-    // Handle resize
+        if (entry.isIntersecting && !wasVisible) {
+          animate(); // <-- this line is what makes it resume
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(mountRef.current);
+
+    animate(); // initial kick-off
+
     const handleResize = () => {
       if (!mountRef.current) return;
       camera.aspect = mountRef.current.clientWidth / mountRef.current.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     };
-
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
-      cancelAnimationFrame(animFrameId);
+      observer.disconnect();
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       if (mountRef.current && renderer.domElement) {
@@ -368,13 +347,10 @@ function Globe3D() {
     <div
       ref={mountRef}
       className="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl relative overflow-hidden flex items-center justify-center"
-      style={{
-        background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%)'
-      }}
+      style={{ background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%)' }}
     />
   );
 }
-
 /* ================= CONTACT INFO CARD ================= */
 function ContactInfoCard({ icon, label, value, href }) {
   const content = (

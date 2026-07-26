@@ -5,9 +5,9 @@ import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   return (
-    <section id="education" className="relative min-h-screen w-full overflow-hidden py-20 md:py-28">
+    <section id="education" className="relative min-h-screen w-full overflow-hidden py-20 md:py-28 flex flex-col items-center">
       {/* Section title as in image */}
-      <div className="mb-16 md:mb-24">
+      <div className="mb-16 md:mb-24 w-full">
         <motion.h2 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +28,7 @@ export default function Education() {
         <br />
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Timeline container */}
         <div className="relative">
           {/* Vertical timeline line */}

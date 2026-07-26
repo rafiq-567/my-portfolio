@@ -59,8 +59,8 @@ const colorConfig = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative  min-h-screen w-full overflow-hidden py-20 md:py-28">
-      <div className="mb-16 md:mb-24 ">
+    <section id="experience" className="relative min-h-screen w-full overflow-hidden py-20 md:py-28 flex flex-col items-center">
+      <div className="mb-16 md:mb-24 w-full">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function Experience() {
         </motion.h2>
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-6xl px-6 sm:px-8 lg:px-12">
         <div className="relative">
           <motion.div
             initial={{ height: 0 }}
