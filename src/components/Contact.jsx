@@ -54,7 +54,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative min-h-screen w-full overflow-hidden py-20"
+      className="relative min-h-screen w-full overflow-hidden py-20 flex justify-center"
 
     >
       {/* Background Effects */}
@@ -62,7 +62,7 @@ export default function Contact() {
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 w-full max-w-7xl px-6 md:px-12 lg:px-20">
         {/* Section Header */}
         <div className="flex flex-col items-center mb-16">
           <div> <br /> <br /></div>
@@ -104,7 +104,7 @@ export default function Contact() {
         </div>
         <div><br /></div>
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
 
           {/* LEFT SIDE - Globe Only */}
           <motion.div
@@ -139,7 +139,7 @@ export default function Contact() {
                     <label
                       className="block text-sm font-medium mb-5 text-gray-300"
                     >
-                    Your Name
+                      Your Name
                     </label>
                     <input
                       type="text"
@@ -367,7 +367,7 @@ function Globe3D() {
   return (
     <div
       ref={mountRef}
-      className="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl relative overflow-hidden"
+      className="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl relative overflow-hidden flex items-center justify-center"
       style={{
         background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%)'
       }}
