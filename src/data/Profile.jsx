@@ -1,4 +1,4 @@
-import photo from '../assets/20210118_141130.jpg'
+import photo from '../assets/20210118_141130.webp'
 import resumePdf from '../assets/Full stack Developer.pdf'
 export const profile = {
   name: "MD. RAFIQUL AKHTER",

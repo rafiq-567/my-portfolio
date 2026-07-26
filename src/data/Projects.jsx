@@ -1,9 +1,9 @@
-import pic10 from '../assets/10s1.JPG'
-import pic11 from '../assets/11s1.JPG'
-import pic12 from '../assets/12s1.JPG'
-import sixTour from '../assets/sixTour.JPG'
-import bigBoom from '../assets/bigBoom.JPG'
-import mamlaManager from '../assets/mamlaManager.png'
+import pic10 from '../assets/10s1.webp'
+import pic11 from '../assets/11s1.webp'
+import pic12 from '../assets/12s1.webp'
+import sixTour from '../assets/sixTour.webp'
+import bigBoom from '../assets/bigBoom.webp'
+import mamlaManager from '../assets/mamlaManager.webp'
 export const projects = [
 
   {

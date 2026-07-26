@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export const Spotlight = ({ className, fill }) => {
   return (
     <motion.svg
+      aria-hidden="true"
       initial={{ opacity: 0, x: -200, y: -200 }}
       animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: 1.5, ease: "easeOut" }}

@@ -77,6 +77,7 @@ export default function ProjectDetails() {
           <img 
             src={project.image} 
             alt={project.name} 
+            loading="lazy"
             className="w-full h-auto object-cover"
           />
         </motion.div>

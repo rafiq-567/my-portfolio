@@ -75,7 +75,7 @@ export default function Contact() {
           >
             <Mail className="w-4 h-4  text-indigo-400" />
 
-            <span className="text-sm font-medium p-4 text-indigo-400 tracking-wide">
+            <span className="text-sm font-medium p-4 text-indigo-300 tracking-wide">
               GET IN TOUCH
             </span>
           </motion.div>
@@ -137,7 +137,7 @@ export default function Contact() {
                 <form className="space-y-8" onSubmit={handleSubmit}>
                   <div className="px-2">
                     <label
-                      className="block text-sm font-medium mb-5 text-gray-300"
+                      className="block text-sm font-medium mb-5 text-gray-200"
                     >
                       Your Name
                     </label>
@@ -148,13 +148,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="John Doe"
-                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                     />
                   </div>
 
                   <div className="px-2">
                     <label
-                      className="block text-sm font-medium mb-5 text-gray-300"
+                      className="block text-sm font-medium mb-5 text-gray-200"
                     >
                       Your Email
                     </label>
@@ -165,13 +165,13 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="john@example.com"
-                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                     />
                   </div>
 
                   <div className="px-2">
                     <label
-                      className="block text-sm font-medium mb-5 text-gray-300"
+                      className="block text-sm font-medium mb-5 text-gray-200"
                     >
                       Message
                     </label>
@@ -182,7 +182,7 @@ export default function Contact() {
                       required
                       rows="5"
                       placeholder="Your message here..."
-                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none"
+                      className="w-full px-4 sm:px-8 py-4 sm:py-6 rounded-lg border border-gray-700 bg-gray-800/50 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none"
                     />
                   </div>
 
@@ -355,11 +355,11 @@ function Globe3D() {
 function ContactInfoCard({ icon, label, value, href }) {
   const content = (
     <>
-      <div className="p-3 rounded-lg bg-indigo-500/10 text-indigo-400">
+      <div className="p-3 rounded-lg bg-indigo-500/10 text-indigo-400" aria-hidden="true">
         {icon}
       </div>
       <div className="flex-1">
-        <p className="text-sm text-gray-400 mb-1">
+        <p className="text-sm text-gray-300 mb-1">
           {label}
         </p>
         <p className="font-medium text-white">

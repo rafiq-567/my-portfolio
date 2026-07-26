@@ -60,17 +60,6 @@
 }
 
 .bg-dot-white {
-  background-image: radial-gradient(
-    circle,
-    rgba(255,255,255,0.025) 1px,
-    transparent 1px
-  );
-}
-
-
-
-/* Custom utility for the grid/dot mask */
-.bg-dot-white {
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
 }

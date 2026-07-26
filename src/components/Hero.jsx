@@ -2,7 +2,7 @@ import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { profile } from '../data/Profile';
-import photo from '../assets/final.png';
+import photo from '../assets/final.webp';
 import { Spotlight } from './ui/Spotlight';
 
 
@@ -66,8 +66,8 @@ export default function Hero() {
                 Download Resume
               </button>
               <div className="flex gap-5 ml-4">
-                <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaGithub size={24} /></a>
-                <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaLinkedin size={24} /></a>
+                <a href={profile.socials.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaGithub size={24} /></a>
+                <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-zinc-400 hover:text-white transition-transform hover:scale-110"><FaLinkedin size={24} /></a>
               </div>
             </div>
           </motion.div>

@@ -85,6 +85,7 @@ export default function Navbar() {
           <span className="text-white font-semibold text-sm">Portfolio</span>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             className="text-gray-300 hover:text-white transition-colors p-1"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
